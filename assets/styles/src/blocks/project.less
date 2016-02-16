@@ -1,0 +1,111 @@
+.project {
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-bottom: 15px;
+    margin-top: 2rem;
+    color: @color-link;
+
+    .column_project:hover & {
+      margin-top: 0;
+    }
+    .column_promo & {
+      color: @color-casual;
+    }
+    .column_casual & {
+      color: lighten(@color-dark, 5%);
+    }
+  }
+  &__img-wrapper {
+    position: relative;
+    height: 209px;
+    margin: 0 auto 20px;
+  }
+  &__illustration {
+    width: 100%;
+    height: auto;
+    transition: all .2s linear;
+    &:hover {
+      -webkit-filter: none;
+      filter: none;
+    }
+    .column_project:nth-of-type(odd) & {
+      filter: grayscale(100%);
+    }
+    .column_project:hover & {
+      opacity: .11;
+    }
+  }
+  &__desc {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transition: top .35s ease-out;
+
+    p {
+      margin-bottom: 10px;
+    }
+    p + p {
+      margin: 0;
+    }
+    .column_project:hover & {
+      top: 0;
+      height: 100%;
+      z-index: 2;
+    }
+  }
+  &__read-more {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    opacity: 0;
+    .column_project:hover & {
+      opacity: 1;
+    }
+  }
+  &__read-more-icon {
+    animation: blink 3s ease alternate-reverse infinite;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+    &:nth-of-type(2) {
+      animation-delay: 1s;
+    }
+    &:nth-of-type(3) {
+      animation-delay: 2s;
+    }
+    .column_project:hover & {
+      animation-play-state: running;
+    }
+  }
+}
+@media screen and (min-width: @screen-s-min) and (max-width: @screen-m) {
+  .column_promo {
+    .project__img_last-project {
+      float: left;
+      margin: 0 20px 10px 0;
+    }
+    .project__illustration {
+      width: 440px;
+      margin: 0;
+      opacity: 1;
+    }
+    .project__title {
+      margin: 0;
+    }
+    .project__desc {
+      position: static;
+    }
+    &:hover {
+      .project__illustration {
+        opacity: 1;
+      }
+    }
+  }
+}
+@media screen and (min-width: @screen-m-min) and (max-width: @screen-m) {
+  .project__img-wrapper {
+    height: auto;
+  }
+}

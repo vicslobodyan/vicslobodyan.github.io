@@ -1,0 +1,108 @@
+.footer {
+  background-color: @color-base;
+  background-image: url('../../../assets/img/tex.png');
+  background-position-y: bottom;
+
+  &__social-icon {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    &:hover {
+      color: #fff;
+
+      .footer__icon-hover {
+        opacity: 0;
+        z-index: -1;
+        transform: rotate(-45deg) scale(-2);
+      }
+      .footer__icon-hidden {
+        opacity: 1;
+        z-index: 1;
+      }
+    }
+  }
+  &__icon-hover {
+    margin: 0px 25px 0 0;
+    font-size: 46px;
+    transition: all .6s ease-out;
+
+    @media screen and (max-width: 420px) {
+      margin: 0px 20px 0 0;
+    }
+  }
+  &__icon-hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    font-size: 32px;
+    line-height: 46px;
+    transition: all .4s ease-in;
+  }
+  &__share-icon {
+    position: relative;
+    float: right;
+    cursor: pointer;
+    i {
+      font-size: 40px;
+      line-height: 46px;
+    }
+    &.active {
+      color: @color-promo;
+    }
+  }
+  &__share-socials-list {
+    position: absolute;
+    display: inline-block;
+    right: -100%;
+    top: 50%;
+    width: 0;
+    margin: 0 15px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 0;
+    white-space: nowrap;
+    border-radius: 5px;
+    border: 1px solid fade(@color-casual, 40%);
+    background-color: fade(@color-casual, 27%);
+    transform: translateY(-50%);
+    transition: all .2s ease-out;
+    &.open {
+      right: 100%;
+      width: auto;
+      opacity: 1;
+      transition: all .2s ease-out;
+    }
+  }
+  &__share-list-icon {
+    display: inline-block;
+    margin: 0 10px;
+    i {
+      line-height: 1;
+    }
+  }
+  @media screen and (max-width: 560px) {
+    &__socials-block {
+      margin-bottom: 0;
+      text-align: left;
+    }
+    &__socials-list {
+      display: block;
+    }
+    &__share-icon {
+      float: none;
+      margin-top: 10px;
+    }
+    &__share-socials-list {
+      right: initial;
+      left: -100%;
+      &.open {
+        right: initial;
+        left: 100%;
+      }
+    }
+  }
+}

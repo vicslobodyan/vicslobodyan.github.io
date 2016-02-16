@@ -1,0 +1,334 @@
+body {
+  font-size: 15px;
+  line-height: 1.5;
+  color: @color-body-text;
+  font-family: 'Lato', sans-serif;
+}
+a {
+  color: @color-link;
+  text-decoration: none;
+  transition: color .2s linear;
+}
+a:hover {
+  color: @color-link-hover;
+}
+p {
+  text-align: justify;
+}
+.go-on-projects,
+.column__heading {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: 0.2rem;
+  text-shadow: 0px 1px 3px darken(@color-body-text, 4%);
+  color: @color-casual;
+}
+.go-on-projects,
+.column__heading {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.link-wrapper {
+  display: block;
+}
+.items-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.wrap {
+  margin: 0 auto;
+  padding: 2px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.column {
+  position: relative;
+	float: left;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background-color: @color-base;
+  border: 2px solid @color-casual;
+  transition: all .2s linear;
+  z-index: 1;
+
+  &_wrapper {
+    width: ~"calc(100% - 235px)";
+  	padding: 2px;
+  	background-color: @color-casual;
+
+    .column {
+      height: 100%;
+      border: 0;
+    }
+  }
+  &_project {
+    height: 507px;
+    overflow: hidden;
+    position: relative;
+    background-color: @color-lighter-base;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      width: 100%;
+      z-index: 3;
+      background-image: linear-gradient(to top, @color-lighter-base 40%, fade(@color-lighter-base, 50%) 90%, rgba(228, 249, 246, 0) 100%);
+    }
+  }
+  &_casual {
+    background-color: @color-casual;
+
+    &:after {
+      background-image: linear-gradient(to top, @color-casual 40%, fade(@color-casual, 50%) 90%, rgba(255, 255, 255, 0) 100%);
+    }
+    .go-on-projects,
+    .column__heading {
+      color: lighten(@color-dark, 5%);
+      text-shadow: none;
+    }
+  }
+  &_promo {
+    background-color: @color-promo;
+    color: @color-casual;
+    &:after {
+      background-image: linear-gradient(to top, @color-promo 40%, fade(@color-promo, 50%) 90%, rgba(15, 95, 110, 0) 100%);
+    }
+    a {
+      color: #51DCE2;
+      &:hover {
+        color: lighten(@color-link-hover, 10%);
+      }
+    }
+  }
+  &_dark, &_darker {
+    background-color: @color-dark;
+    background-image: url('../../../assets/img/tex_contrast1.png');
+    background-position-y: center;
+    color: @color-casual;
+  }
+  &_darker {
+    background-position-y: bottom;
+  }
+  &_intro {
+    width: ~"calc(100% - 235px)";
+    padding-right: 30%;
+
+    @media screen and (max-width: 1239px) {
+      padding-right: 1.5rem;
+    }
+  }
+  &_what-we-do {
+    p {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.sidebar {
+  width: 235px;
+  position: relative;
+  background-color: @color-base;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    z-index: 0;
+    background-color: inherit;
+  }
+  .column__heading {
+    line-height: 1.5;
+    overflow: hidden;
+  }
+  @media screen and (max-width: 620px) {
+    width: 0;
+    position: absolute;
+    left: -100%;
+    opacity: 0;
+    transition: all .2s ease-out;
+
+    &.open {
+      width: 235px;
+      left: 0;
+      opacity: 1;
+      z-index: 10;
+      transition: all .2s ease-out;
+    }
+    &:after {
+      display: none;
+    }
+    & .column__heading {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 600px) and (max-width: @screen-xs) {
+    width: 215px;
+  }
+}
+
+.logo {
+  display: block;
+  width: 200px;
+  max-width: 100%;
+  margin: 0 auto 20px;
+}
+
+.go-on-projects {
+  display: none;
+  margin: 20px 0 0;
+
+  span {
+    padding-right: 10px;
+  }
+  a {
+    padding: 0 10px 0 0;
+    white-space: nowrap;
+    &:hover {
+      color: @color-casual;
+    }
+  }
+}
+
+.fa-google-plus {
+  left: 6px;
+  font-size: 30px;
+}
+.fa-twitter {
+  left: 6px;
+  top: 1px;
+}
+.fa-facebook {
+  left: 14px;
+  top: 4px;
+  font-size: 36px;
+}
+.fa-pinterest-p {
+  left: 7px;
+  top: 4px;
+  font-size: 36px;
+}
+.fa-code-fork,
+.fa-map-marker {
+  width: 10px;
+  font-size: 16px;
+  padding: 0 4px 0 0;
+  vertical-align: baseline;
+}
+.fa-map-marker { 
+  padding: 0 8px 0 0;
+}
+.fa-heart {
+  width: 1px;
+  font-size: 8px;
+  vertical-align: top;
+}
+@media screen and (max-width: @screen-xs), (min-width: @screen-m-min) and (max-width: @screen-m) {
+  .column_personalities {
+    padding: 1.5rem 0;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .column_what-we-do  p + p {
+    display: none;
+  }
+}
+@media screen and (min-width: @screen-s-min) and (max-width: @screen-m) {
+  .column_project.column_promo {
+    height: auto;
+  }
+}
+
+@media screen and (min-width: @screen-s-min) and (max-width: @screen-s) {
+  .column_personalities {
+    padding: 1.5rem 0 0;
+  }
+}
+@media screen and (max-width: @screen-xs) {
+  .go-on-projects,
+  .column__heading {
+    font-size: 1.1em;
+    letter-spacing: 0.1rem;
+    margin-bottom: 10px;
+  }
+  .column {
+    padding: 1.1rem;
+  
+    &_wrapper {
+      padding: 0;
+    }
+    &_project {
+      display: none;
+    }
+    &_personalities {
+      padding: 1.5rem 0 0;
+    }
+  }
+  .go-on-projects {
+    display: block;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: @screen-xs) {
+  .column {
+    &_wrapper {
+      width: ~"calc(100% - 215px)";
+    }
+    &_intro {
+      width: ~"calc(100% - 215px)";
+    }
+  }
+}
+@media screen and (max-width: 620px) {
+  .go-on-projects,
+  .column__heading {
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.1rem;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .column {
+    padding: 1rem;
+    &_personalities {
+      padding: 0;
+    }
+    &_intro,
+    &_wrapper {
+      width: 100%;
+    }
+    &_wrapper {
+      padding: 0;
+    }
+    &_intro p {
+      text-align: left;
+    }
+  }
+  .logo {
+    width: 150px;
+  }
+  .go-on-projects {
+    margin-top: 10px;
+    line-height: 1.8;
+  }
+}
+@media screen and (max-width: 620px) and (orientation: landscape) {
+  .logo {
+    width: 100px;
+    float: left;
+    margin-right: 30px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .column_personalities {
+    display: none;
+  }
+}

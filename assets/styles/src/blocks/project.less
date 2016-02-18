@@ -58,22 +58,23 @@
   }
   &__read-more {
     position: absolute;
-    top: 0;
-    right: 20px;
+    top: 1.5rem;
+    right: 1.5rem;
     opacity: 0;
+    transition: opacity .1s ease;
     .column_project:hover & {
       opacity: 1;
     }
   }
   &__read-more-icon {
-    animation: blink 3s ease alternate-reverse infinite;
-    animation-fill-mode: both;
+    vertical-align: middle;
+    animation: blink 3s ease alternate infinite;
     animation-play-state: paused;
     &:nth-of-type(2) {
-      animation-delay: 1s;
+      animation-delay: .4s;
     }
     &:nth-of-type(3) {
-      animation-delay: 2s;
+      animation-delay: .8s;
     }
     .column_project:hover & {
       animation-play-state: running;

@@ -62,15 +62,10 @@ gulp.task('clean:styles', function () {
         .pipe($.rimraf());
 });
 
-// Like watch :)
 gulp.task('serve', ['clean', 'bower-files', 'scripts', 'styles'], function () {
-    // watch JS
     gulp.watch('assets/scripts/src/**/*.js', ['scripts']);
-
-    // watch CSS
     gulp.watch('assets/styles/src/**/*.less', ['clean:styles', 'styles']);
 
-    // livereload
     livereload.listen();
 });
 

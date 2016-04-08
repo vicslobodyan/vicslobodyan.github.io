@@ -54,9 +54,13 @@ p {
   z-index: 1;
 
   &_wrapper {
-    width: ~"calc(100% - 235px)";
   	padding: 2px;
   	background-color: @color-casual;
+    &.column {
+      @media screen and (min-width: @screen-s-min) {
+        width: ~"calc(100% - 235px)";
+      }
+    }
 
     .column {
       height: 100%;
@@ -114,11 +118,15 @@ p {
     background-position-y: bottom;
   }
   &_intro {
-    width: ~"calc(100% - 235px)";
     padding-right: 30%;
 
     @media screen and (max-width: 1239px) {
       padding-right: 1.5rem;
+    }
+    &.column {
+      @media screen and (min-width: @screen-s-min) {
+        width: ~"calc(100% - 235px)";
+      }
     }
   }
   &_what-we-do {
@@ -129,7 +137,7 @@ p {
 }
 
 .sidebar {
-  width: 235px;
+  
   position: relative;
   background-color: @color-base;
 
@@ -146,6 +154,12 @@ p {
   .column__heading {
     line-height: 1.5;
     overflow: hidden;
+  }
+  &.column {
+    width: 235px;
+    @media screen and (min-width: 600px) and (max-width: @screen-xs) {
+      width: 215px;
+    }
   }
   @media screen and (max-width: 620px) {
     width: 0;
@@ -167,9 +181,6 @@ p {
     & .column__heading {
       display: none;
     }
-  }
-  @media screen and (min-width: 600px) and (max-width: @screen-xs) {
-    width: 215px;
   }
 }
 

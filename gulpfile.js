@@ -10,13 +10,10 @@ var gulp = require('gulp'),
 
 gulp.task('styles', function () {
     gulp.src('assets/styles/src/main.less')
-        .pipe($.less({
-            paths: ['.']
-        }))
+        .pipe($.less())
         .pipe(plumber())
         .pipe($.postcss([
-            require('autoprefixer-core')({browsers: ['last 3 version']}),
-            require('css-mqpacker').postcss
+            require('autoprefixer-core')({browsers: ['last 3 version']})
         ]))
         .pipe($.concatCss('main.css'))
         .pipe($.csso())
